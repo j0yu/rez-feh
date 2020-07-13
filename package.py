@@ -3,7 +3,7 @@ name = "feh"
 __version__ = "3.1.3"
 version = __version__ + "+local.1.0.0"
 
-variants = [["os-CentOS-7", "arch-x86_64"]]
+variants = [["os-centos-7", "arch-x86_64"]]
 
 build_command = r"""
 set -euf -o pipefail
@@ -16,7 +16,7 @@ cp -v \
 IIDFILE=$(mktemp "$REZ_BUILD_PATH"/DockerImageXXXXXX)
 
 # In rez resolved version:
-# - REZ_OS_MAJOR_VERSION = CentOS
+# - REZ_OS_MAJOR_VERSION = centos
 # - REZ_OS_MINOR_VERSION = 7
 docker build --rm \
     --build-arg CENTOS_MAJOR="$REZ_OS_MINOR_VERSION" \
