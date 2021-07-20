@@ -17,11 +17,6 @@ echo "    into current directory: $(pwd)"
 curl "${CURL_FLAGS[@]}" "$URL" \
 | tar --strip-components=1 -xj
 
-./configure --prefix="$INSTALL_DIR" --with-pydebug --enable-shared
-make -s -j"$(nproc)"
-make -s -j"$(nproc)" install
-
-
 # See https://feh.finalrewind.org/
 LD_RUN_PATH='$ORIGIN:$ORIGIN/../lib64':"$INSTALL_DIR"/lib64 make \
     --silent -j"$(nproc)" curl=0 exif=1 test=1 xinerama=1 debug=1
