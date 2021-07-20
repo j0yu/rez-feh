@@ -12,7 +12,8 @@ RUN yum install -y epel-release \
         libexif-devel \
         libjpeg-devel \
         libpng-devel \
-        make
+        make \
+    && yum clean all
 
 COPY entrypoint.sh /
 ENTRYPOINT ["bash", "/entrypoint.sh"]
